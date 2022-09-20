@@ -10,7 +10,7 @@ const headers = {
 
 export function getAllTheaterAPI(callback, errorcallback) {
   axios
-    .get(`${baseURL}/evento/register/get/organizers`)
+    .get(`${baseURL}evento/register/get/organizers`)
     .then((res) => {
      
       if (callback != null) {
@@ -26,7 +26,7 @@ export function getAllTheaterAPI(callback, errorcallback) {
 
 export function getOrganizerDetailsAPI(emailId, callback, errorcallback) {
   axios
-    .get(`${baseURL}/evento/register/get/organizer/${emailId}`)
+    .get(`${baseURL}evento/register/get/organizer/${emailId}`)
     .then((res) => {
       if (callback != null) {
         callback(res.data);
@@ -43,7 +43,7 @@ export function getOrganizerDetailsAPI(emailId, callback, errorcallback) {
 export function updateOrganizerPassword(emailId, password, callback, errorcallback) {
 
   axios
-    .put(`${baseURL}/evento/register/update/update-organizer-password/${emailId}`, { password })    
+    .put(`${baseURL}evento/register/update/update-organizer-password/${emailId}`, { password })    
     .then((res) => {
      
       if (callback != null) {
@@ -61,7 +61,7 @@ export function updateOrganizerPassword(emailId, password, callback, errorcallba
 export function updateUserPassword(emailId, password, callback, errorcallback) {
 
   axios
-    .put(`${baseURL}/evento/register/update/update-user-password/${emailId}`, { password })    
+    .put(`${baseURL}evento/register/update/update-user-password/${emailId}`, { password })    
     .then((res) => {
       if (callback != null) {
         callback(res.data);
@@ -81,7 +81,7 @@ export function updateUserProfile(emailId, payload, callback, errorcallback) {
   let {  userName, mobileNo } = payload
 
   axios
-    .put(`${baseURL}/evento/register/update/update-user/${emailId}/${userName}/${mobileNo}`)    
+    .put(`${baseURL}evento/register/update/update-user/${emailId}/${userName}/${mobileNo}`)    
     .then((res) => {
       if (callback != null) {
         callback(res.data);
@@ -100,7 +100,7 @@ export function updateUserProfile(emailId, payload, callback, errorcallback) {
 export function updateProfileAPI(emailId, payload, callback, errorcallback) {
   let {  organizerName, mobileNo } = payload
   axios
-    .put(`${baseURL}/evento/register/update/update-organizer/${emailId}/${organizerName}/${mobileNo}`)    
+    .put(`${baseURL}evento/register/update/update-organizer/${emailId}/${organizerName}/${mobileNo}`)    
     .then((res) => {
       if (callback != null) {
         callback(res.data);
@@ -115,7 +115,7 @@ export function updateProfileAPI(emailId, payload, callback, errorcallback) {
 
 export function addNewVenueAPI(emailId, payload, callback, errorcallback) {
   axios
-    .put(`${baseURL}/evento/register/update/theatreDetails/${emailId}`, payload)
+    .put(`${baseURL}evento/register/update/theatreDetails/${emailId}`, payload)
     .then((res) => {
     
       if (callback != null) {
@@ -131,7 +131,7 @@ export function addNewVenueAPI(emailId, payload, callback, errorcallback) {
 
 export function updateVenueAPI(id,emailId, payload, callback, errorcallback) {
   axios
-    .put(`${baseURL}/evento/register/update-organizer/theatreDetails/${id}/${emailId}`, payload)
+    .put(`${baseURL}evento/register/update-organizer/theatreDetails/${id}/${emailId}`, payload)
     .then((res) => {
       if (callback != null) {
         callback(res.data);
@@ -148,7 +148,7 @@ export function updateVenueAPI(id,emailId, payload, callback, errorcallback) {
 
 export async function getTheaterById(theaterid,callback, errorcallback) {
   await axios
-    .get(`${baseURL}/evento/register/get/theatreDetails/${theaterid}`)
+    .get(`${baseURL}evento/register/get/theatreDetails/${theaterid}`)
     .then((res) => {
       
       if (callback != null) {
@@ -165,7 +165,7 @@ export async function getTheaterById(theaterid,callback, errorcallback) {
 
 export async function registerOrganizer(data,callback, errorcallback) {
   await axios
-    .post(`${baseURL}/evento/register/register-organizer`,data,{
+    .post(`${baseURL}evento/register/register-organizer`,data,{
       headers:headers
     })
     .then((res) => {
@@ -184,7 +184,7 @@ export async function registerOrganizer(data,callback, errorcallback) {
 
 export async function registerUser(data,callback, errorcallback) {
   await axios
-    .post(`${baseURL}/evento/register/register-user`,data,{
+    .post(`${baseURL}evento/register/register-user`,data,{
       headers:headers
     })
     .then((res) => {
@@ -204,7 +204,7 @@ export async function registerUser(data,callback, errorcallback) {
 
 export function getUserDetailsAPI(emailId, callback, errorcallback) {
   axios
-    .get(`${baseURL}/evento/register/get/user/${emailId}`)
+    .get(`${baseURL}evento/register/get/user/${emailId}`)
     .then((res) => {
       if (callback != null) {
         callback(res.data);

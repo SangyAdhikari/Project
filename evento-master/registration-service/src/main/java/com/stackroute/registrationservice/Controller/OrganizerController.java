@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/evento/register")
+@RequestMapping("evento/register")
 //@CrossOrigin(origins = "*")
 public class OrganizerController {
 	@Autowired
