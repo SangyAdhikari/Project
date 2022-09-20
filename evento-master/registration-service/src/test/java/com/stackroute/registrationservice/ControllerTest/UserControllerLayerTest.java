@@ -51,7 +51,7 @@
 //
 //
 //		        when(serviceImpl.newUser(any(RegisterUser.class))).thenReturn((trialObj));
-//					mockMvc.perform(post("evento/register/register-user")
+//					mockMvc.perform(post("//evento/register/register-user")
 //
 //					                .contentType(MediaType.APPLICATION_JSON)
 //					                .content(jsonToString(trialObj)))
@@ -63,7 +63,7 @@
 //		    	 String emailId="nitesh@gmail.com";
 //		    	 String password="Nitesh@2310";
 //				        when(serviceImpl.updateUserPassword(emailId,trialObj)).thenReturn(trialObj);
-//							mockMvc.perform(put("evento/register/update/update-user-password/nitesh@gmail.com/Nitesh@2310")
+//							mockMvc.perform(put("//evento/register/update/update-user-password/nitesh@gmail.com/Nitesh@2310")
 //							                .contentType(MediaType.APPLICATION_JSON)
 //							                .content(jsonToString(trialObj)))
 //							.andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
@@ -74,7 +74,7 @@
 //		    	 String password="Nitesh@2310";
 //		    	 long mobileNo=837283606;
 //				        when(serviceImpl.updateUserInfo(emailId,password,mobileNo)).thenReturn(trialObj);
-//							mockMvc.perform(put("evento/register/update/update-user/nitesh@gmail.com/Nitesh@2310/837283606")
+//							mockMvc.perform(put("//evento/register/update/update-user/nitesh@gmail.com/Nitesh@2310/837283606")
 //							                .contentType(MediaType.APPLICATION_JSON)
 //							                .content(jsonToString(trialObj)))
 //							.andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
@@ -86,7 +86,7 @@
 //		    	 list.add(trialObj);
 //					        when(serviceImpl.FetchAllUsers()).thenReturn(list);
 //					        assertEquals(1, serviceImpl.FetchAllUsers().size());
-//								mockMvc.perform(get("evento/register/get/users")
+//								mockMvc.perform(get("//evento/register/get/users")
 //								                .contentType(MediaType.APPLICATION_JSON)
 //								                .content(jsonToString(list)))
 //								.andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
@@ -96,7 +96,7 @@
 //		    	 String emailId="nitesh@gmail.com";
 //
 //				        when(serviceImpl.getOneUser(emailId)).thenReturn(trialObj);
-//							mockMvc.perform(get("evento/register/get/user/nitesh@gmail.com")
+//							mockMvc.perform(get("//evento/register/get/user/nitesh@gmail.com")
 //							                .contentType(MediaType.APPLICATION_JSON)
 //							                .content(jsonToString(trialObj)))
 //							.andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
