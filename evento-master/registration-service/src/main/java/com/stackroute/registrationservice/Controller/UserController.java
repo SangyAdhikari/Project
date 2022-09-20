@@ -20,7 +20,7 @@ import com.stackroute.registrationservice.Services.UserService;
 
 
 @RestController
-@RequestMapping("//evento/register")
+@RequestMapping("/evento/register")
 //@CrossOrigin(origins = "*")
 public class UserController {
 	
