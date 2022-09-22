@@ -1,83 +1,4 @@
 version: "2"
-services:
-  mongoservice:
-    image: mongo:latest
-    container_name: mongo-container
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 27017:27017
-    restart: always
-
-  mysql:
-    image: mysql:latest
-    container_name: mysql-container
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: 'Gangs@2000'
-      MYSQL_PASSWORD: 'Gangs@2000'
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    restart: always
-
-  rabbitmq:
-    image: rabbitmq:management
-    container_name: rabbitmq
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 5672:5672
-      - 15672:15672
-    environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-    restart: always
-
-  config-server:
-    container_name: config-server
-    build: config-server/
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 8888:8888
-    restart: always
-
-  eureka-server:
-    container_name: eureka-server
-    build: eureka-server/
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 8671:8671
-    restart: always
-
-  api-gateway:
-    container_name: api-gateway
-    build: api-gateway/
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 8080:8080
-    depends_on:
-      - eureka-server
-    restart: always
-
-  authentication-service:
-    container_name: authentication-service
-    build: authentication-service/
-    hostname: localhost
-    network_mode: host
-    ports:
-      - 8082:8082
-    depends_on:
-      - eureka-server
-      - api-gateway
-      - mysql
-      - rabbitmq
-    restart: always
-
   event-details-service:
     container_name: event-details-service
     build: event-details-service/
@@ -144,8 +65,8 @@ services:
       - mongoservice
       - rabbitmq
     restart: always
-
-  product-webapp:
+    
+    product-webapp:
     build: product-webapp/
     image: product-webapp
     container_name: product-webapp
@@ -153,6 +74,85 @@ services:
     hostname: localhost
     ports:
       - 4200:4200
+    restart: always
+    
+    rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    restart: always
+    
+    authentication-service:
+    container_name: authentication-service
+    build: authentication-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - eureka-server
+      - api-gateway
+      - mysql
+      - rabbitmq
+    restart: always
+    
+    api-gateway:
+    container_name: api-gateway
+    build: api-gateway/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8080:8080
+    depends_on:
+      - eureka-server
+    restart: always
+    
+   eureka-server:
+    container_name: eureka-server
+    build: eureka-server/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8671:8671
+    restart: always
+    
+   config-server:
+    container_name: config-server
+    build: config-server/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8888:8888
+    restart: always 
+
+  services:
+  mongoservice:
+    image: mongo:latest
+    container_name: mongo-container
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 27017:27017
+    restart: always
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Gangs@2000'
+      MYSQL_PASSWORD: 'Gangs@2000'
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     restart: always
 
 #sudo docker ps -a
