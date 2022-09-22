@@ -1,4 +1,5 @@
 version: "2"
+services:
   event-details-service:
     container_name: event-details-service
     build: event-details-service/
@@ -132,7 +133,6 @@ version: "2"
       - 8888:8888
     restart: always 
 
-  services:
   mongoservice:
     image: mongo:latest
     container_name: mongo-container
